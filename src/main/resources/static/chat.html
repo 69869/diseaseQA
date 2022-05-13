@@ -4,18 +4,23 @@
     <meta charset="UTF-8">
     <title>document</title>
     <style type="text/css">
+        input[type="text"]{
+            outline-style: none ;
+            border-radius: 3px;
+            padding: 8px;
+            width: 500px;
+            background-color: aliceblue;
+        }
         .chat{
             width:600px;
             height:500px;
             border:1px solid #666;
             margin:50px auto 0;
-            background:#f9f9f9;
         }
         .talk_show{
             width:580px;
             height:420px;
             border:1px solid #666;
-            background:#fff;
             margin:10px auto 0;
             overflow:auto;
         }
@@ -30,7 +35,6 @@
             display:inline-block;
             background:#0181cc;
             border-radius:10px;
-            color:#fff;
             padding:5px 10px;
         }
         .atalk{
@@ -41,51 +45,23 @@
             display:inline-block;
             background:#ef8201;
             border-radius:10px;
-            color:#fff;
             padding:5px 10px;
         }
     </style>
-    <script type="text/javascript">
-        window.onload = function (){
-            var words = document.getElementById("words")
-            var text = document.getElementById("text");
-            var put =document.getElementById("put");
-            var xhr = new XMLHttpRequest();
-            put.onclick = function () {
-                var str = "123";
-                str = '<div class="atalk"><span>问：' + text.value + '</span></div>'
-                words.innerHTML = words.innerHTML + str;
-                xhr.open('POST', '/diseaseQA/receive/words', true);
-                xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-                xhr.send("question="+text.value);
-
-                xhr.onreadystatechange=function()
-                {
-                    var answer;
-                    var respond;
-                    if (xhr.readyState == 4 && xhr.status == 200) {
-                        answer = xhr.responseText;
-                        respond = '<div class="btalk"><span>答：' + answer + '</span></div>';
-                        words.innerHTML = words.innerHTML +respond;
-                    }
-                }
-            }
-        }
-
-    </script>
+    <script src="chat.js"></script>
 </head>
-<body>
+<body style="background-color: aliceblue">
+<h3 style="text-align: center">病例查询</h3>
 <div class="chat">
     <div class="talk_show" id="words">
         <div class="btalk"><span>你好，你有什么问题呢？</span></div>
     </div>
-
     <div class="talk_input">
         <input type="text" name="question" id="text">
-        <input type="button" value="发送" id="put">
+        <input type="submit" value="发送" id="put">
     </div>
-
-
+    <br>
+    <p><a href="feedback.html" style="text-decoration-line: none" target="_blank">没有您想找的信息?点此反馈补充</a></p>
 </div>
 </body>
 </html>

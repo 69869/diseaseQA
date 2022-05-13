@@ -6,9 +6,11 @@
     <select id="selectByName" resultType="Disease">
         select * from qa where name = #{name}
     </select>
-
     <select id="selectAnswer" resultType="String">
         select ${questiontype} from qa where name = #{name}
     </select>
-
+    <insert id="insertFeedback" parameterType="Feedback" keyProperty="id">
+        insert into feedback (remark,name,intro,symptom,cause,cure,medicine,department)
+        values(#{remark},#{name},#{intro},#{symptom},#{cause},#{cure},#{medicine},#{department})
+        </insert>
 </mapper>

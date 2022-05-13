@@ -8,7 +8,6 @@ import java.util.TreeMap;
 
 @Controller
 public class NLP {
-
     public static LinkedList<String> segmentFully(String text, TreeMap<String, CoreDictionary.Attribute> dictionary){
         LinkedList<String> wordList = new LinkedList<String>();
         for (int i = 0;i<text.length();++i){
