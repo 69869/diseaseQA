@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>反馈页面</title>
+    <style type="text/css">
+        input[type="text"]{
+            outline-style: none ;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            padding: 13px 14px;
+            width: 620px;
+            background-color: aliceblue;
+        }
+    </style>
+</head>
+<body style="background-color: lavender">
+<form action="/diseaseQA/receive/feedback" method="post">
+    <span style="text-align: center;display: block">
+        <h5>感谢您的补充</h5>
+        <p>备注信息：<input type="text" name="remark" class="block"></p>
+        <p>病例名称：<input type="text" name="name"></p>
+        <p>病例介绍：<input type="text" name="intro"></p>
+        <p>病例症状：<input type="text" name="symptom"></p>
+        <p>引起原因：<input type="text" name="cause"></p>
+        <p>治疗方式：<input type="text" name="cure"></p>
+        <p>治疗药物：<input type="text" name="medicine"></p>
+        <p>所属科室：<input type="text" name="department"></p>
+        <button><a href="chat.html" style="text-decoration-line: none">返回</a></button>
+        <input type="reset" value="重置">
+        <input type="submit" value="提交">
+    </span>
+</form>
+</body>
+</html>
